@@ -1,0 +1,47 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Ysabeau+Infant&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+
+#container {
+    font-family: 'Ysabeau Infant', sans-serif;
+  
+}
+.nav-link{
+    text-transform: uppercase;
+}
+.heading{
+    font-family: 'Parisienne', cursive;
+    font-weight: bold;
+    font-size: 50px;
+}
+#navbarNav{
+    justify-content: space-evenly;
+}
+.back-to-top {
+display: none;
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background-color: #007bff;
+color: #fff;
+border: none;
+font-size: 20px;
+cursor: pointer;
+outline: none;
+}
+
+.back-to-top i {
+margin-top: 10px;
+}
+a{
+    text-decoration: none;
+}
+  
