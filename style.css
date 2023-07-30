@@ -6,7 +6,9 @@
     padding: 0;
    
 }
-
+.hidden-section {
+    display: none;
+  }
 #container {
     font-family: 'Ysabeau Infant', sans-serif;
   

@@ -204,18 +204,33 @@
   // });
   async function fetchAllTopStories() {
     try {
-        await fetchTopStories('home');
-        await fetchTopStories('world');
-        await fetchTopStories('politics');
-        await fetchTopStories('magazine'); 
-        await fetchTopStories('technology'); 
-        await fetchTopStories('science');
-        await fetchTopStories('health');
-        await fetchTopStories('sports');
-        await fetchTopStories('arts'); 
-        await fetchTopStories('fashion'); 
-        await fetchTopStories('food'); 
-        await fetchTopStories('travel'); 
+      const value = getQueryParamValue('value');
+      //console.log(value);
+       // await fetchTopStories(value);
+       if (value) {
+        // Fetch data for the specified section
+        await fetchTopStories(value);
+        // Remove the "hidden-section" class from the specified section to show it
+        const container = document.getElementById(value);
+        container.classList.remove('hidden-section');
+      } else {
+        // If no section is specified in the URL, hide all sections with the "hidden-section" class
+        const hiddenSections = document.querySelectorAll('.hidden-section');
+        hiddenSections.forEach(section => {
+          section.style.display = 'none';
+        });
+      }
+        // await fetchTopStories('world');
+        // await fetchTopStories('politics');
+        // await fetchTopStories('magazine'); 
+        // await fetchTopStories('technology'); 
+        // await fetchTopStories('science');
+        // await fetchTopStories('health');
+        // await fetchTopStories('sports');
+        // await fetchTopStories('arts'); 
+        // await fetchTopStories('fashion'); 
+        // await fetchTopStories('food'); 
+        // await fetchTopStories('travel'); 
         const currentDate = new Date();
       const formattedDate = formatDate(currentDate);
       const dateElement = document.getElementById('date');
@@ -224,6 +239,11 @@
         console.error('Error fetching top stories:', error);
     }
 }
+function getQueryParamValue(paramName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(paramName);
+}
+
 
 // Call the function to fetch all top stories asynchronously
 fetchAllTopStories();
