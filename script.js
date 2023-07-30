@@ -53,21 +53,39 @@
         });
     }
   
- 
+    function fetchTopStoriesWithDelay(category, delay) {
+      setTimeout(() => {
+        fetchTopStories(category);
+      }, delay);
+    }
   
     document.addEventListener('DOMContentLoaded', function() {
-        fetchTopStories('home');
-        fetchTopStories('world');
-        fetchTopStories('politics');
-        fetchTopStories('magazine'); 
-        fetchTopStories('technology'); 
-        fetchTopStories('science');
-        fetchTopStories('health');
-        fetchTopStories('sports');
-        fetchTopStories('arts'); 
-        fetchTopStories('fashion'); 
-        fetchTopStories('food'); 
-        fetchTopStories('travel');
+      const delayInterval = 1000; // Set a delay interval of 1 second (1000 ms) between requests
+
+      fetchTopStoriesWithDelay('home', delayInterval * 0);
+      fetchTopStoriesWithDelay('world', delayInterval * 1);
+      fetchTopStoriesWithDelay('politics', delayInterval * 2);
+      fetchTopStoriesWithDelay('magazine', delayInterval * 3);
+      fetchTopStoriesWithDelay('technology', delayInterval * 4);
+      fetchTopStoriesWithDelay('science', delayInterval * 5);
+      fetchTopStoriesWithDelay('health', delayInterval * 6);
+      fetchTopStoriesWithDelay('sports', delayInterval * 7);
+      fetchTopStoriesWithDelay('arts', delayInterval * 8);
+      fetchTopStoriesWithDelay('fashion', delayInterval * 9);
+      fetchTopStoriesWithDelay('food', delayInterval * 10);
+      fetchTopStoriesWithDelay('travel', delayInterval * 11);
+        // fetchTopStories('home');
+        // fetchTopStories('world');
+        // fetchTopStories('politics');
+        // fetchTopStories('magazine'); 
+        // fetchTopStories('technology'); 
+        // fetchTopStories('science');
+        // fetchTopStories('health');
+        // fetchTopStories('sports');
+        // fetchTopStories('arts'); 
+        // fetchTopStories('fashion'); 
+        // fetchTopStories('food'); 
+        // fetchTopStories('travel');
 
         const currentDate = new Date();
         const formattedDate = formatDate(currentDate);
