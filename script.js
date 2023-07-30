@@ -1,121 +1,254 @@
 
-    function fetchTopStories(category) {
-        const apiKey = 'pC5ZxyJGZfZkFqI2XOjs4X2z2kVEtPyW'; 
-      const apiUrl = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${apiKey}`;
+    // function fetchTopStories(category) {
+    //     const apiKey = 'pC5ZxyJGZfZkFqI2XOjs4X2z2kVEtPyW'; 
+    //   const apiUrl = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${apiKey}`;
   
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          const results = data.results;
-          const section = category.toUpperCase(); 
-          const container = document.getElementById(category); 
+    //   fetch(apiUrl)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       const results = data.results;
+    //       const section = category.toUpperCase(); 
+    //       const container = document.getElementById(category); 
   
-          results.forEach(story => {
-            const { title, abstract, byline, created_date, url, multimedia } = story;
+    //       results.forEach(story => {
+    //         const { title, abstract, byline, created_date, url, multimedia } = story;
           
-            if (!title || !abstract || !byline || !created_date || !url || !multimedia) {
-                return; 
-            }
-            const imageUrl = multimedia && multimedia.length > 0 ? multimedia[1]?.url : null;
+    //         if (!title || !abstract || !byline || !created_date || !url || !multimedia) {
+    //             return; 
+    //         }
+    //         const imageUrl = multimedia && multimedia.length > 0 ? multimedia[1]?.url : null;
           
-            const card = `
+    //         const card = `
             
          
-                <div class="card">
+    //             <div class="card">
                  
-                 <div class="card-body">
-                    <div class="row">
-              <div class="col-md-6 mb-4">
+    //              <div class="card-body">
+    //                 <div class="row">
+    //           <div class="col-md-6 mb-4">
              
-                    <h5 class="card-title">${title}</h5>
-                    <p class="card-text">${abstract}</p>
-                    <p class="card-text">By ${byline}</p>
-                    <p class="card-text">${created_date}</p>
-                    <a href="${url}" class="" target="_blank">Continue Reading</a>
+    //                 <h5 class="card-title">${title}</h5>
+    //                 <p class="card-text">${abstract}</p>
+    //                 <p class="card-text">By ${byline}</p>
+    //                 <p class="card-text">${created_date}</p>
+    //                 <a href="${url}" class="" target="_blank">Continue Reading</a>
                 
-                </div>
-                <div class="col-md-6 mb-4">
+    //             </div>
+    //             <div class="col-md-6 mb-4">
                     
-                    ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="width: 400px;margin: 0 auto;display: flex;" class="card-img-top img-thumbnail">` : '<div class="img-thumbnail"></div>'}
+    //                 ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="width: 400px;margin: 0 auto;display: flex;" class="card-img-top img-thumbnail">` : '<div class="img-thumbnail"></div>'}
                    
-               </div>
-                </div>
-              </div>
-              </div>
-            `;
+    //            </div>
+    //             </div>
+    //           </div>
+    //           </div>
+    //         `;
   
         
-            container.insertAdjacentHTML('beforeend', card);
-          });
-        })
-        .catch(error => {
-          console.error('Error fetching data:', error);
-        });
-    }
+    //         container.insertAdjacentHTML('beforeend', card);
+    //       });
+    //     })
+    //     .catch(error => {
+    //       console.error('Error fetching data:', error);
+    //     });
+    // }
   
-    function fetchTopStoriesWithDelay(category, delay) {
-      setTimeout(() => {
-        fetchTopStories(category);
-      }, delay);
-    }
+    // function fetchTopStoriesWithDelay(category, delay) {
+    //   setTimeout(() => {
+    //     fetchTopStories(category);
+    //   }, delay);
+    // }
     
-    document.addEventListener('DOMContentLoaded', function() {
-      const delayInterval = 1000; // Set a delay interval of 1 second (1000 ms) between requests
+    // document.addEventListener('DOMContentLoaded', function() {
+    //   const delayInterval = 1000; // Set a delay interval of 1 second (1000 ms) between requests
 
-      fetchTopStoriesWithDelay('home', delayInterval * 0);
-      fetchTopStoriesWithDelay('world', delayInterval * 2);
-      fetchTopStoriesWithDelay('politics', delayInterval * 4);
-      fetchTopStoriesWithDelay('magazine', delayInterval * 6);
-      fetchTopStoriesWithDelay('technology', delayInterval * 8);
-      fetchTopStoriesWithDelay('science', delayInterval * 10);
-      fetchTopStoriesWithDelay('health', delayInterval * 12);
-      fetchTopStoriesWithDelay('sports', delayInterval * 14);
-      fetchTopStoriesWithDelay('arts', delayInterval * 16);
-      fetchTopStoriesWithDelay('fashion', delayInterval * 18);
-      fetchTopStoriesWithDelay('food', delayInterval * 20);
-      //fetchTopStoriesWithDelay('travel', delayInterval * 11);
-        // fetchTopStories('home');
-        // fetchTopStories('world');
-        // fetchTopStories('politics');
-        // fetchTopStories('magazine'); 
-        // fetchTopStories('technology'); 
-        // fetchTopStories('science');
-        // fetchTopStories('health');
-        // fetchTopStories('sports');
-        // fetchTopStories('arts'); 
-        // fetchTopStories('fashion'); 
-        // fetchTopStories('food'); 
-        // fetchTopStories('travel');
+    //   fetchTopStoriesWithDelay('home', delayInterval * 0);
+    //   fetchTopStoriesWithDelay('world', delayInterval * 2);
+    //   fetchTopStoriesWithDelay('politics', delayInterval * 4);
+    //   fetchTopStoriesWithDelay('magazine', delayInterval * 6);
+    //   fetchTopStoriesWithDelay('technology', delayInterval * 8);
+    //   fetchTopStoriesWithDelay('science', delayInterval * 10);
+    //   fetchTopStoriesWithDelay('health', delayInterval * 12);
+    //   fetchTopStoriesWithDelay('sports', delayInterval * 14);
+    //   fetchTopStoriesWithDelay('arts', delayInterval * 16);
+    //   fetchTopStoriesWithDelay('fashion', delayInterval * 18);
+    //   fetchTopStoriesWithDelay('food', delayInterval * 20);
+    //   //fetchTopStoriesWithDelay('travel', delayInterval * 11);
+    //     // fetchTopStories('home');
+    //     // fetchTopStories('world');
+    //     // fetchTopStories('politics');
+    //     // fetchTopStories('magazine'); 
+    //     // fetchTopStories('technology'); 
+    //     // fetchTopStories('science');
+    //     // fetchTopStories('health');
+    //     // fetchTopStories('sports');
+    //     // fetchTopStories('arts'); 
+    //     // fetchTopStories('fashion'); 
+    //     // fetchTopStories('food'); 
+    //     // fetchTopStories('travel');
 
-        const currentDate = new Date();
-        const formattedDate = formatDate(currentDate);
-        const dateElement = document.getElementById('date');
-        dateElement.textContent = formattedDate;
-    });
+    //     const currentDate = new Date();
+    //     const formattedDate = formatDate(currentDate);
+    //     const dateElement = document.getElementById('date');
+    //     dateElement.textContent = formattedDate;
+    // });
 
-    function formatDate(date) {
-        const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-      }
+    // function formatDate(date) {
+    //     const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+    //     return date.toLocaleDateString('en-US', options);
+    //   }
 
-     //backToTopBtn
-     const backToTopBtn = document.getElementById('backToTopBtn');
+    //  //backToTopBtn
+    //  const backToTopBtn = document.getElementById('backToTopBtn');
 
         
-        window.onscroll = function() {
-        scrollFunction();
-        };
+    //     window.onscroll = function() {
+    //     scrollFunction();
+    //     };
 
-        function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            backToTopBtn.style.display = 'block';
-        } else {
-            backToTopBtn.style.display = 'none';
-        }
-        }
+    //     function scrollFunction() {
+    //     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    //         backToTopBtn.style.display = 'block';
+    //     } else {
+    //         backToTopBtn.style.display = 'none';
+    //     }
+    //     }
 
   
-        backToTopBtn.addEventListener('click', function() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-        });
+    //     backToTopBtn.addEventListener('click', function() {
+    //     document.body.scrollTop = 0;
+    //     document.documentElement.scrollTop = 0;
+    //     });
+
+    async function fetchTopStories(category) {
+      const apiKey = 'pC5ZxyJGZfZkFqI2XOjs4X2z2kVEtPyW';
+      const apiUrl = `https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=${apiKey}`;
+  
+      try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          const results = data.results;
+          const section = category.toUpperCase();
+          const container = document.getElementById(category);
+  
+          results.forEach(story => {
+              const { title, abstract, byline, created_date, url, multimedia } = story;
+  
+              if (!title || !abstract || !byline || !created_date || !url || !multimedia) {
+                  return;
+              }
+              const imageUrl = multimedia && multimedia.length > 0 ? multimedia[1]?.url : null;
+  
+              const card = `
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-md-6 mb-4">
+                                  <h5 class="card-title">${title}</h5>
+                                  <p class="card-text">${abstract}</p>
+                                  <p class="card-text">By ${byline}</p>
+                                  <p class="card-text">${created_date}</p>
+                                  <a href="${url}" class="" target="_blank">Continue Reading</a>
+                              </div>
+                              <div class="col-md-6 mb-4">
+                                  ${imageUrl ? `<img src="${imageUrl}" alt="${title}" style="width: 400px;margin: 0 auto;display: flex;" class="card-img-top img-thumbnail">` : '<div class="img-thumbnail"></div>'}
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              `;
+  
+              container.insertAdjacentHTML('beforeend', card);
+          });
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  }
+  
+  async function fetchTopStoriesWithDelay(category, delay) {
+      await new Promise(resolve => setTimeout(resolve, delay));
+      await fetchTopStories(category);
+  }
+  
+  // document.addEventListener('DOMContentLoaded', async function () {
+  //     const delayInterval = 1000; // Set a delay interval of 1 second (1000 ms) between requests
+  
+  //     // await fetchTopStoriesWithDelay('home', delayInterval * 0);
+  //     // await fetchTopStoriesWithDelay('world', delayInterval * 2);
+  //     // await fetchTopStoriesWithDelay('politics', delayInterval * 4);
+  //     // await fetchTopStoriesWithDelay('magazine', delayInterval * 6);
+  //     // await fetchTopStoriesWithDelay('technology', delayInterval * 8);
+  //     // await fetchTopStoriesWithDelay('science', delayInterval * 10);
+  //     // await fetchTopStoriesWithDelay('health', delayInterval * 12);
+  //     // await fetchTopStoriesWithDelay('sports', delayInterval * 14);
+  //     // await fetchTopStoriesWithDelay('arts', delayInterval * 16);
+  //     // await fetchTopStoriesWithDelay('fashion', delayInterval * 18);
+  //     // await fetchTopStoriesWithDelay('food', delayInterval * 20);
+  //          fetchTopStories('home');
+  //       fetchTopStories('world');
+  //       fetchTopStories('politics');
+  //       fetchTopStories('magazine'); 
+  //       fetchTopStories('technology'); 
+  //       fetchTopStories('science');
+  //       fetchTopStories('health');
+  //       fetchTopStories('sports');
+  //       fetchTopStories('arts'); 
+  //       fetchTopStories('fashion'); 
+  //       fetchTopStories('food'); 
+  //       fetchTopStories('travel');
+  
+  //     const currentDate = new Date();
+  //     const formattedDate = formatDate(currentDate);
+  //     const dateElement = document.getElementById('date');
+  //     dateElement.textContent = formattedDate;
+  // });
+  async function fetchAllTopStories() {
+    try {
+        await fetchTopStories('home');
+        await fetchTopStories('world');
+        await fetchTopStories('politics');
+        await fetchTopStories('magazine'); 
+        await fetchTopStories('technology'); 
+        await fetchTopStories('science');
+        await fetchTopStories('health');
+        await fetchTopStories('sports');
+        await fetchTopStories('arts'); 
+        await fetchTopStories('fashion'); 
+        await fetchTopStories('food'); 
+        await fetchTopStories('travel'); 
+        const currentDate = new Date();
+      const formattedDate = formatDate(currentDate);
+      const dateElement = document.getElementById('date');
+      dateElement.textContent = formattedDate;
+    } catch (error) {
+        console.error('Error fetching top stories:', error);
+    }
+}
+
+// Call the function to fetch all top stories asynchronously
+fetchAllTopStories();
+  function formatDate(date) {
+      const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+  }
+  
+  // Back to Top button
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  
+  window.onscroll = function () {
+      scrollFunction();
+  };
+  
+  function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          backToTopBtn.style.display = 'block';
+      } else {
+          backToTopBtn.style.display = 'none';
+      }
+  }
+  
+  backToTopBtn.addEventListener('click', function () {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+  });
+  
